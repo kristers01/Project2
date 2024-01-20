@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // display all authors
     public function list()
     {
@@ -66,6 +70,6 @@ class AuthorController extends Controller
         $author->delete();
         return redirect('/authors');
     }
-    
+
 
 }
